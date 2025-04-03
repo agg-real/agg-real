@@ -59,8 +59,10 @@ local dragToggle = Tab:AddToggle({
 Tab:AddButton({
     Name = "Сброс к дефолту",
     Callback = function()
+       local brick = game.Players.LocalPlayer.Character.Brick
         power = 5
         speed = 0.7
+brick.Handle.Size = Vector3.new(1.7042549848556519, 2.625422477722168, 0.33697208762168884)
         powerTextbox:Set(tostring(power / 10))
         speedTextbox:Set(tostring(speed))
     end
@@ -78,7 +80,6 @@ task.spawn(function()
                 brick.FlightSpeed.Value = 100000000000000
             else
                 brick.Handle.Massless = false
-                brick.Handle.Size = Vector3.new(1.7042549848556519, 2.625422477722168, 0.33697208762168884)
                 brick.FlightSpeed.Value = 0.52
             end
         end
