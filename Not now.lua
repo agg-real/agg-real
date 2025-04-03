@@ -7,7 +7,7 @@ local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 
 local Window = OrionLib:MakeWindow({Name = "Перчатка", HidePremium = false, SaveConfig = true})
-local Tab = Window:MakeTab({Name = "Настройки", Icon = "Settings"})
+local Tab = Window:MakeTab({Name = "Настройки", Icon = "rbxassetid://89991291117147"})
 local power = 50
 local speed = 0
 local flightEnabled = false
@@ -61,6 +61,11 @@ Tab:AddButton({
        local brick = game.Players.LocalPlayer.Character.Brick
         power = 5
         speed = 0.7
+OrionLib:MakeNotification({
+	Name = "Функция идельно сработала!",
+	Content = "Скорость, сила, и хитбоксы сброшены",
+	Time = 3.5
+})
 brick.Handle.Size = Vector3.new(1.7042549848556519, 2.625422477722168, 0.33697208762168884)
         powerTextbox:Set(tostring(power / 10))
         speedTextbox:Set(tostring(speed))
