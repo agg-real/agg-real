@@ -1,4 +1,4 @@
-Print("Thank to lich king for helping")
+print("Thank to lich king for helping")
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -73,12 +73,12 @@ Tab:AddButton({
     Name = "Сброс к дефолту",
     Callback = function()
        local brick = game.Players.LocalPlayer.Character.Brick
-OrionLib:MakeNotification({
+--[[OrionLib:MakeNotification({
 	Name = "Функция сработала!",
 	Content = "Сброшено",
 	Image = "rbxassetid://9122804122",
 	Time = 5
-})
+}) --]]
 flight = 0.52
         power = 5
         speed = 0.7
