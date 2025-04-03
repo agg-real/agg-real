@@ -40,7 +40,7 @@ local speedTextbox = Tab:AddTextbox({
 })
 
 local flightToggle = Tab:AddToggle({
-    Name = "Включить massless изменить размер и FlightSpeed кстати салойбратикврайта",
+    Name = "Включить massless изменить размер",
     Default = flightEnabled,
     Callback = function(value)
         flightEnabled = value
@@ -61,11 +61,6 @@ Tab:AddButton({
        local brick = game.Players.LocalPlayer.Character.Brick
         power = 5
         speed = 0.7
-OrionLib:MakeNotification({
-	Name = "Функция идельно сработала!",
-	Content = "Скорость, сила, и хитбоксы сброшены",
-	Time = 3.5
-})
 brick.Handle.Size = Vector3.new(1.7042549848556519, 2.625422477722168, 0.33697208762168884)
         powerTextbox:Set(tostring(power / 10))
         speedTextbox:Set(tostring(speed))
@@ -83,7 +78,7 @@ task.spawn(function()
                 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
                 brick.FlightSpeed.Value = 100000000000000
             else
-                brick.Handle.Massless = false
+                brick.Handle.Massless = true
                 brick.FlightSpeed.Value = 0.52
             end
         end
