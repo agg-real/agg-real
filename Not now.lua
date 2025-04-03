@@ -1,3 +1,4 @@
+Print("Thank to lich king for helping")
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -6,9 +7,10 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 
-local Window = OrionLib:MakeWindow({Name = "Перчатка", HidePremium = false, SaveConfig = true})
-local Tab = Window:MakeTab({Name = "Настройки", Icon = "rbxassetid://89991291117147"})
+local Window = OrionLib:MakeWindow({Name = "Skibi-lich hub", HidePremium = false, SaveConfig = true})
+local Tab = Window:MakeTab({Name = "Главная", Icon = "rbxassetid://89991291117147"})
 local power = 50
+local flight = 0.52
 local speed = 0
 local flightEnabled = false
 local dragEnabled = true
@@ -26,6 +28,18 @@ local powerTextbox = Tab:AddTextbox({
     end
 })
 
+local flightspeedTextbox = Tab:AddTextbox({
+    Name = "Скорость полёта",
+    Default = tostring(power),
+    Callback = function(value)
+        local num = tonumber(value)
+        if num then
+            flight = num
+        else
+            flightspeedTextbox:Set(tostring(flight))
+        end
+    end
+})
 local speedTextbox = Tab:AddTextbox({
     Name = "Скорость",
     Default = tostring(speed),
@@ -40,7 +54,7 @@ local speedTextbox = Tab:AddTextbox({
 })
 
 local flightToggle = Tab:AddToggle({
-    Name = "Включить massless изменить размер",
+    Name = "Включить функцию",
     Default = flightEnabled,
     Callback = function(value)
         flightEnabled = value
@@ -59,6 +73,13 @@ Tab:AddButton({
     Name = "Сброс к дефолту",
     Callback = function()
        local brick = game.Players.LocalPlayer.Character.Brick
+OrionLib:MakeNotification({
+	Name = "Функция сработала!",
+	Content = "Сброшено",
+	Image = "rbxassetid://9122804122",
+	Time = 5
+})
+flight = 0.52
         power = 5
         speed = 0.7
 brick.Handle.Size = Vector3.new(1.7042549848556519, 2.625422477722168, 0.33697208762168884)
@@ -76,10 +97,9 @@ task.spawn(function()
             if flightEnabled then
                 brick.Handle.Massless = true
                 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
-                brick.FlightSpeed.Value = 100000000000000
+                brick.FlightSpeed.Value = flight
             else
                 brick.Handle.Massless = true
-                brick.FlightSpeed.Value = 0.52
             end
         end
     end
