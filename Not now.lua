@@ -60,6 +60,8 @@ local flightToggle = Tab:AddToggle({
         flightEnabled = value
     end
 })
+
+
 Tab:AddButton({
     Name = "Увеличить хитбоксы",
     Callback = function()
@@ -74,8 +76,9 @@ OrionLib:MakeNotification({
 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
 			end
 			end
-}) happy
+})
 
+-- buff = Включить мощность и т.д
 Tab:AddButton({
     Name = "Включить мощность и т.д",
     Callback = function()
@@ -108,13 +111,6 @@ brick.Handle.Size = Vector3.new(1.7042549848556519, 2.625422477722168, 0.3369720
 flightspeedTextbox:Set(tostring(flight))
 
         speedTextbox:Set(tostring(speed))
-			elseif not brick then
-OrionLib:MakeNotification({
-	Name = "Функция не сработала!",
-	Content = "Возьми перчатку в руки",
-	Image = "rbxassetid://9122804122",
-	Time = 5
-})
 			end
 			end
 })
