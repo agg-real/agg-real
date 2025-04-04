@@ -60,12 +60,10 @@ local flightToggle = Tab:AddToggle({
         flightEnabled = value
     end
 })
-
-
 Tab:AddButton({
     Name = "Увеличить хитбоксы",
     Callback = function()
-       local brick = game.Players.LocalPlayer.Character:WaitForChild("Brick")
+       local brick = game.Players.LocalPlayer.Character.Brick
 			if brick then
 OrionLib:MakeNotification({
 	Name = "Функция сработала!",
@@ -74,13 +72,22 @@ OrionLib:MakeNotification({
 	Time = 5
 })
 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
-			elseif not brick then
+			end
+			end
+}) happy
+
+Tab:AddButton({
+    Name = "Увеличить хитбоксы",
+    Callback = function()
+       local brick = game.Players.LocalPlayer.Character.Brick
+			if brick then
 OrionLib:MakeNotification({
-	Name = "Функция не сработала!",
-	Content = "Возьми перчатку в руки",
+	Name = "Функция сработала!",
+	Content = "Увеличены хитбоксы",
 	Image = "rbxassetid://9122804122",
 	Time = 5
 })
+brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
 			end
 			end
 })
@@ -120,9 +127,9 @@ task.spawn(function()
     while task.wait() do
         if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Brick") then
             local brick = game.Players.LocalPlayer.Character.Brick
+	if flightEnabled then
             brick.Speed.Value = speed
             brick.Power.Value = power / 10
-            if flightEnabled then
                 brick.Handle.Massless = true
                 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
                 brick.FlightSpeed.Value = flight
@@ -133,13 +140,6 @@ task.spawn(function()
     end
 end)
 
-local dragToggle = Tab:AddToggle({
-    Name = "Перетаскивание меню",
-    Default = dragEnabled,
-    Callback = function(value)
-        dragEnabled = value
-    end
-})
 
 OrionLib:Init()
 
