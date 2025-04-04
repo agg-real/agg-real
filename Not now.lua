@@ -73,19 +73,30 @@ Tab:AddButton({
     Name = "Сброс к дефолту",
     Callback = function()
        local brick = game.Players.LocalPlayer.Character.Brick
---[[OrionLib:MakeNotification({
+			if brick then
+OrionLib:MakeNotification({
 	Name = "Функция сработала!",
 	Content = "Сброшено",
 	Image = "rbxassetid://9122804122",
 	Time = 5
-}) --]]
+})
 flight = 0.52
         power = 5
         speed = 0.7
 brick.Handle.Size = Vector3.new(1.7042549848556519, 2.625422477722168, 0.33697208762168884)
         powerTextbox:Set(tostring(power / 10))
+flightspeedTextbox:Set(tostring(flight))
+
         speedTextbox:Set(tostring(speed))
-    end
+			else
+OrionLib:MakeNotification({
+	Name = "Функция не сработала!",
+	Content = "Возьми перчатку в руки",
+	Image = "rbxassetid://9122804122",
+	Time = 5
+})
+			end
+			end
 })
 
 task.spawn(function()
