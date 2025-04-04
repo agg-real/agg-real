@@ -77,17 +77,13 @@ brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
 }) happy
 
 Tab:AddButton({
-    Name = "Увеличить хитбоксы",
+    Name = "Включить мощность и т.д",
     Callback = function()
        local brick = game.Players.LocalPlayer.Character.Brick
 			if brick then
-OrionLib:MakeNotification({
-	Name = "Функция сработала!",
-	Content = "Увеличены хитбоксы",
-	Image = "rbxassetid://9122804122",
-	Time = 5
-})
-brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
+            brick.Speed.Value = speed
+              brick.FlightSpeed.Value = flight
+            brick.Power.Value = power / 10
 			end
 			end
 })
