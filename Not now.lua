@@ -61,19 +61,11 @@ local flightToggle = Tab:AddToggle({
     end
 })
 
-local dragToggle = Tab:AddToggle({
-    Name = "Перетаскивание меню",
-    Default = dragEnabled,
-    Callback = function(value)
-        dragEnabled = value
-    end
-})
-
 
 Tab:AddButton({
     Name = "Увеличить хитбоксы",
     Callback = function()
-       local brick = game.Players.LocalPlayer.Character.Brick
+       local brick = game.Players.LocalPlayer.Character:WaitForChild("Brick")
 			if brick then
 OrionLib:MakeNotification({
 	Name = "Функция сработала!",
@@ -97,7 +89,7 @@ OrionLib:MakeNotification({
 Tab:AddButton({
     Name = "Сброс к дефолту",
     Callback = function()
-       local brick = game.Players.LocalPlayer.Character.Brick
+       local brick = game.Players.LocalPlayer.Character:WaitForChild("Brick")
 			if brick then
 OrionLib:MakeNotification({
 	Name = "Функция сработала!",
@@ -140,6 +132,14 @@ task.spawn(function()
         end
     end
 end)
+
+local dragToggle = Tab:AddToggle({
+    Name = "Перетаскивание меню",
+    Default = dragEnabled,
+    Callback = function(value)
+        dragEnabled = value
+    end
+})
 
 OrionLib:Init()
 
